@@ -1,0 +1,120 @@
+@use "../global/colors" as c;
+@use "../global/breakpoints" as b;
+
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 9.6rem;
+    position: relative;
+  }
+  &__list {
+    display: flex;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    gap: clamp(1.2rem, 2.5vw, 3.2rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 300ms ease-in-out;
+
+    @include b.breakpoint(medium) {
+      z-index: 99999;
+      position: absolute;
+      right: -3vh;
+
+      top: -6vh;
+      height: 100vh;
+      width: 100%;
+      background-color: rgba(37, 43, 70, 0.9);
+      flex-direction: column;
+      align-items: center;
+      gap: 9.6rem;
+      font-size: 3.2rem;
+      padding-top: 16rem;
+      transform: translateX(100%);
+
+      /* 1. Hide it visually */
+      opacity: 0;
+
+      /* 2. Make it unaccessible to mouse and keyboard */
+      pointer-events: none;
+
+      /* 3. Hide it form screen readers */
+      visibility: hidden;
+    }
+    &--active {
+      transform: translateX(0%);
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
+  &__list-item {
+    width: 100%;
+    margin-right: 5rem;
+    text-align: center;
+    // border-bottom: 1px solid blue;
+  }
+  &__link {
+    color: c.$grayish-blue;
+    &:hover {
+      color: c.$soft-red;
+    }
+    @include b.breakpoint(medium) {
+      color: #fff;
+      letter-spacing: 4;
+    }
+  }
+  &__link-text {
+    @include b.breakpoint(medium) {
+      border-top: 1px solid c.$grayish-blue;
+      border-bottom: 1px solid c.$grayish-blue;
+      padding: 3.2rem 0;
+    }
+  }
+  &__list-btn {
+    background-color: c.$soft-red;
+    color: hsl(0, 0%, 100%);
+    padding: 0.8rem 3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid c.$soft-red;
+
+    &:hover {
+      background-color: #fff;
+      @include b.breakpoint(medium) {
+        background-color: unset;
+      }
+    }
+    @include b.breakpoint(medium) {
+      width: 100%;
+      background-color: transparent;
+      padding: 1.2rem 10rem;
+      border: 2px solid #fff;
+    }
+  }
+  &__menu-icon {
+    display: none;
+    width: 5rem;
+    height: 5rem;
+    fill: c.$very-dark-blue;
+    cursor: pointer;
+    z-index: 9999999999;
+
+    &--active {
+      @include b.breakpoint(medium) {
+        display: block;
+      }
+    }
+    &--close {
+      fill: #fff;
+    }
+  }
+  &__logo {
+    z-index: 9999999999;
+  }
+  &__circle-svg--active {
+    fill: #fff;
+    transition: fill 1s;
+  }
+}

@@ -1,0 +1,70 @@
+@use "../global/colors" as c;
+@use "../global/breakpoints" as b;
+
+.contact {
+  background-color: c.$soft-blue;
+  &__wrapper {
+    margin-bottom: 0 !important;
+    padding: clamp(3rem, 2.5vw, 6.4rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+
+    @include b.breakpoint(medium) {
+      padding: 6rem 0;
+    }
+  }
+  &__subheading {
+    font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+    font-weight: 500;
+    letter-spacing: 5;
+    margin-bottom: 4.8rem;
+  }
+  &__heading {
+    font-size: clamp(3.2rem, 2.5vw, 4.2rem);
+    letter-spacing: 2;
+    font-weight: 500;
+    margin-bottom: 4.2rem;
+  }
+  &__form-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+
+    @include b.breakpoint(medium) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__form {
+    border: 2px solid c.$grayish-blue;
+    border-radius: 1rem;
+    font-size: clamp(1.8rem, 2.5vw, 2rem);
+    padding: 2rem 3rem;
+    outline: none;
+    max-width: 100%;
+
+    &::placeholder {
+      color: c.$grayish-blue;
+    }
+  }
+  &__btn {
+    border: none;
+    border: 2px solid c.$soft-red;
+    border-radius: 1rem;
+    background-color: c.$soft-red;
+    color: #fff;
+    font-weight: bold;
+    padding: 2rem 4rem;
+    font-size: clamp(1.8rem, 2.5vw, 1.8rem);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
+      color: c.$soft-red;
+    }
+  }
+}

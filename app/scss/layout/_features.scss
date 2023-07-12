@@ -1,0 +1,130 @@
+@use "../global/colors" as c;
+@use "../global/breakpoints" as b;
+
+.features {
+  position: relative;
+  z-index: 9999;
+  min-height: 80rem;
+  margin-bottom: 12.6rem;
+  &::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    background-color: c.$soft-blue;
+    left: 0;
+    bottom: -5rem;
+    min-width: 60rem;
+    min-height: 30rem;
+    border-radius: 0 10rem 10rem 0;
+
+    @include b.breakpoint(xlarge) {
+      min-width: 40rem;
+      min-height: 25rem;
+    }
+
+    @include b.breakpoint(medium) {
+      min-width: 20rem;
+      min-height: 20rem;
+    }
+  }
+  &__description-container {
+    width: 100%;
+  }
+  &__heading {
+    font-size: clamp(4rem, 2.5vw, 4.2rem);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    color: c.$very-dark-blue;
+  }
+  &__subheading {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    text-align: center;
+    color: c.$grayish-blue;
+    margin-bottom: 6.4rem;
+  }
+  &__tabbed-btns-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__tabbed-btns-container {
+    border-bottom: 2px solid c.$grayish-blue;
+    display: flex;
+    justify-content: space-around;
+    gap: 1.2rem;
+    margin-bottom: 6.4rem;
+    @include b.breakpoint(medium) {
+      flex-direction: column;
+    }
+  }
+  &__tabbed-btn {
+    padding: 2rem 2.4rem;
+    border: none;
+    color: c.$grayish-blue;
+    background-color: #fff;
+    font-size: clamp(1.8rem, 2.5vw, 2rem);
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: c.$soft-red;
+    }
+    &--active {
+      border-bottom: 2px solid c.$soft-red;
+      color: hsl(231, 6%, 21%);
+    }
+  }
+  &__content {
+    display: none;
+
+    &--active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 6.4rem;
+      @include b.breakpoint(xlarge) {
+        grid-template-columns: 1fr;
+        place-items: center;
+        text-align: center;
+      }
+    }
+  }
+  &__tabbed-text-container {
+    padding: 4.2rem;
+  }
+  &__tabbed-heading {
+    font-size: clamp(3rem, 2.5vw, 3.2rem);
+    margin-bottom: 2.4rem;
+    color: c.$very-dark-blue;
+  }
+  &__tabbed-subheading {
+    font-size: 1.8rem;
+    color: c.$grayish-blue;
+    line-height: 2.5rem;
+    margin-bottom: 2.4rem;
+  }
+  &__tabbed-btn1 {
+    border: none;
+    background-color: c.$soft-blue;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  &__tabbed-img-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    @include b.breakpoint(xlarge) {
+      justify-content: center;
+      grid-row: 2/ 3;
+    }
+  }
+  &__tabbed-img {
+    z-index: 1;
+    max-width: 100%;
+  }
+}

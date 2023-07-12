@@ -1,0 +1,110 @@
+@use "../global/colors" as c;
+@use "../global/breakpoints" as b;
+
+.hero {
+  position: relative;
+  z-index: 9999;
+  &::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    background-color: c.$soft-blue;
+    right: 0;
+    bottom: -3rem;
+    min-width: 60rem;
+    min-height: 30rem;
+    border-radius: 10rem 0 0 10rem;
+    @include b.breakpoint(xlarge) {
+      min-width: 40rem;
+      min-height: 25rem;
+    }
+    @include b.breakpoint(medium) {
+      min-width: 30rem;
+      min-height: 20rem;
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2.4rem, 2.5vw, 6.4rem);
+
+    @include b.breakpoint(large) {
+      grid-template-columns: 1fr;
+      row-gap: 6.4rem;
+    }
+  }
+  &__text-container {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    padding: clamp(1rem, 2vw, 6.4rem);
+
+    @include b.breakpoint(large) {
+      align-items: center;
+      text-align: center;
+    }
+    @include b.breakpoint(medium) {
+      padding: 0;
+    }
+  }
+  &__heading {
+    color: c.$very-dark-blue;
+    font-size: clamp(3rem, 3vw, 4.8rem);
+    margin-bottom: clamp(1.2rem, 2vw, 2.4rem);
+  }
+  &__subheading {
+    color: c.$grayish-blue;
+    line-height: 2.8rem;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    margin-bottom: clamp(1.2rem, 2vw, 2.4rem);
+    line-break: auto;
+  }
+  &__btns-container {
+    display: flex;
+    gap: 1.2rem;
+  }
+  &__btn {
+    border: none;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 1.6rem;
+
+    &-blue {
+      background-color: c.$soft-blue;
+      border: 2px solid c.$soft-blue;
+      color: #fff;
+
+      &:hover {
+        background-color: #fff;
+        color: c.$soft-blue;
+      }
+    }
+    &-white {
+      background-color: #fff;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border: 2px solid transparent;
+
+      &:hover {
+        border: 2px solid #000;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+    }
+  }
+  &__img-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    @include b.breakpoint(large) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__img {
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+}

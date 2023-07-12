@@ -1,0 +1,21 @@
+{
+  "name": "bookmark-landing-page-master",
+  "version": "1.0.0",
+  "description": "![Design preview for the Bookmark landing page coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/transformer-sass": "^2.9.3",
+    "boxicons": "^2.1.4",
+    "parcel": "^2.9.3",
+    "sass": "^1.63.6"
+  },
+  "devDependencies": {
+    "util": "^0.12.5"
+  }
+}

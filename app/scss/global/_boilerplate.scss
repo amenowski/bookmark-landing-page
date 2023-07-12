@@ -1,0 +1,41 @@
+@use "breakpoints" as b;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+body,
+html,
+::after,
+::before {
+  font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+html {
+  font-size: 62.5%;
+  @include b.breakpoint(xlarge) {
+    font-size: 50%;
+  }
+}
+.container {
+  width: min(100% - 12.6rem, 144rem);
+  margin-inline: auto;
+  margin-bottom: 9.6rem;
+  @include b.breakpoint(medium) {
+    margin-bottom: 6.4em;
+    width: min(100% - 3.2rem, 144rem);
+  }
+}
+.text-center {
+  text-align: center;
+}
+img {
+  display: block;
+  // width: 100%;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
